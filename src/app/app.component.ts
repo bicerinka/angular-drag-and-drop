@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-function remove(item: string, list: string[]) {
+function remove(item: string, list: any[]) {
     if (list.indexOf(item) !== -1) {
         list.splice(list.indexOf(item), 1);
     }
@@ -24,15 +24,15 @@ export class AppComponent {
         ['1', 0],
         ['3', 0],
     ],
-    [
-        ['117', 0],
-        ['7', 0],
-        ['8', 0],
-        ['9', 0],
-        ['10', 0],
-        ['11', 0],
-        ['12', 0]
-    ]];
+        [
+            ['117', 0],
+            ['7', 0],
+            ['8', 0],
+            ['9', 0],
+            ['10', 0],
+            ['11', 0],
+            ['12', 0]
+        ]];
 
     currentBox?: string;
 
@@ -42,13 +42,12 @@ export class AppComponent {
     currentIndex: number;
     mousedownInfo = [];
 
-    move(box: string, toList: Array[] = []): void {
+    move(box: string, toList: any[] = []): void {
         // remove(box, this.availableBoxes);
         remove(box, this.dropzones[0]);
         remove(box, this.dropzones[1]);
 
         toList.push(box);
-        console.log(box);
     }
 
     edit(dropzone, index, box) {
@@ -120,7 +119,7 @@ export class AppComponent {
     }
 
     sorting(zone) {
-        this.dropzones[zone].sort(function (a, b) {
+        this.dropzones[zone].sort(function (a: any, b: any) {
             if (!a[1] && !b[1]) {
                 return a[0] - b[0];
             }
