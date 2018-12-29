@@ -1,0 +1,35 @@
+.box {
+  background: #BADA55;
+  border: 1px solid black;
+  padding: 10px 20px;
+  display: block;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none; }
+  .box.dragging {
+    background: coral; }
+  .box.sortable.dragging {
+    background: none;
+    border: 1px dashed black;
+    color: transparent; }
+
+.task-closed {
+  background: aqua;
+  pointer-events: none; }
+
+.dropzone {
+  padding-top: 20px;
+  margin: 20px 0;
+  background: lightgray;
+  min-height: 200px;
+  border: 1px solid black; }
+  .dropzone.dropzone-activated {
+    border: 1px solid red; }
+  .dropzone.dropzone-entered {
+    background-color: #efefef; }
+
+/*# sourceMappingURL=app.component.css.map */

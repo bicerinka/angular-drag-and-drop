@@ -1,0 +1,49 @@
+<h1>Draggable</h1>
+
+<h2>Part 6 - the dropzone</h2>
+
+<div class="dropzone" appDropzone (drop)="move(currentBox, dropzones[0])"
+     (remove)="move(currentBox, availableBoxes)" (mouseup)="elemMouseup($event, 0,-1)">
+    <a href="#" (click)="sorting(0)">Сортировка</a>
+    <div *ngFor="let box of dropzones[0];let i = index" class="box"
+         appDroppable (dragStart)="currentBox = box"
+         (click)="edit(0,i,box)"
+         (mousedown)="elemMousedown(0,i,box)"
+         (mouseup)="elemMouseup($event,0,i)"
+         [ngClass]="{'task-closed':box[1] == 1  }"
+    >
+        <span [hidden]="(currentDropzone == 0 && currentIndex == i)">{{ box[0] }}</span>
+        <div class="box" *appDraggableHelper>{{ box }}</div>
+        <div [hidden]="!(currentDropzone == 0 && currentIndex == i)">
+            <input [(ngModel)]="currentItem">
+            <a href="#" (click)="save()">Принять</a>
+            ---
+            <a href="#" (click)="cancel()">Отменить</a>
+            ---
+            <a href="#" (click)="end()">Завершить</a>
+        </div>
+    </div>
+</div>
+
+<div class="dropzone" appDropzone (drop)="move(currentBox, dropzones[1])"
+     (remove)="move(currentBox, availableBoxes)" (mouseup)="elemMouseup($event, 1,-1)">
+    <a href="#" (click)="sorting(1)">Сортировка</a>
+    <div *ngFor="let box of dropzones[1];let i = index" class="box"
+         appDroppable (dragStart)="currentBox = box"
+         (click)="edit(1,i,box)"
+         (mousedown)="elemMousedown(1,i,box)"
+         (mouseup)="elemMouseup($event,1,i)"
+         [ngClass]="{'task-closed':box[1] == 1  }"
+    >
+        <span [hidden]="(currentDropzone == 1 && currentIndex == i)">{{ box[0] }}</span>
+        <div class="box" *appDraggableHelper>{{ box }}</div>
+        <div [hidden]="!(currentDropzone == 1 && currentIndex == i)">
+            <input [(ngModel)]="currentItem">
+            <a href="#" (click)="save()">Принять</a>
+            ---
+            <a href="#" (click)="cancel()">Отменить</a>
+            ---
+            <a href="#" (click)="end()">Завершить</a>
+        </div>
+    </div>
+</div>
