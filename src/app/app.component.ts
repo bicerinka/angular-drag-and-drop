@@ -42,7 +42,7 @@ export class AppComponent {
     currentIndex: number;
     mousedownInfo = [];
 
-    move(box: string, toList: Array = []): void {
+    move(box: string, toList: Array[] = []): void {
         // remove(box, this.availableBoxes);
         remove(box, this.dropzones[0]);
         remove(box, this.dropzones[1]);
